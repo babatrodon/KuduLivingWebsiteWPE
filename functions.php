@@ -11,6 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'KUDU_VERSION', '2.1.0' );
 
+/* Self-contained GitHub theme updater (push a new Version → WordPress offers an update). */
+require_once get_template_directory() . '/inc/github-updater.php';
+if ( class_exists( 'Kudu_GitHub_Updater' ) ) {
+	new Kudu_GitHub_Updater( 'babatrodon/KuduLivingWebsiteWPE', 'main' );
+}
+
 /* ============================================================
  * 1. Theme setup + assets
  * ============================================================ */

@@ -17,6 +17,21 @@ That's it — the homepage, Collections listing, product pages, and every menu l
 
 ---
 
+## Automatic updates from GitHub (no more zip uploads)
+
+The theme updates itself from this repo — a small self-contained updater is built in (`inc/github-updater.php`), no plugin or third-party library required.
+
+**To ship an update:**
+1. Make your changes and bump the `Version:` number in `style.css` (e.g. `2.1.0` → `2.1.1`).
+2. `git commit` and `git push` to `main`.
+3. On the WordPress site: **Dashboard › Updates** → *Kudu Living* shows an available update → click **Update**. (WordPress checks periodically; "Check again" forces it. The remote version is cached ~6h.)
+
+That's it — no zipping, no re-uploading. It pulls the latest `main` from GitHub and installs it into the same theme folder.
+
+> Public repo, so no access token is needed. If you later make the repo private, the updater would need a token (tell me and I'll add support).
+
+---
+
 ## Editing content (in wp-admin)
 
 - **Products** (left menu → *Products*): title, description (main editor), **Designer / Price / Category / "New" flag** (in the *Product details* box), and a **Featured Image**. The Collections grid at `/collections` and each `/product/…` page are generated from these.
