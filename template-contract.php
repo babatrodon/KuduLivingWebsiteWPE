@@ -59,21 +59,55 @@ $kudu_container = 'mx-auto w-full max-w-[1440px] px-5 md:px-[68px]';
 	<section class="bg-white">
 		<div class="<?php echo esc_attr( $kudu_container ); ?> py-[20px]">
 			<div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-				<?php foreach ( $kudu_projects as $project ) : ?>
-					<a href="<?php echo kudu_url( 'contract' ); ?>" class="group block">
-						<div class="overflow-hidden">
-							<img
-								src="<?php echo kudu_img( $project[0] ); ?>"
-								alt="<?php echo esc_attr( $project[1] ); ?>"
-								class="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-105"
-							>
-						</div>
-						<p class="mt-3 text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-muted">
-							Project
-						</p>
-						<h3 class="mt-1 text-[18px] font-bold text-kudu-navy"><?php echo esc_html( $project[1] ); ?></h3>
-					</a>
-				<?php endforeach; ?>
+				<?php
+				$kudu_projects_query = new WP_Query(
+					array(
+						'post_type'      => 'project',
+						'posts_per_page' => 8,
+						'no_found_rows'  => true,
+					)
+				);
+				if ( $kudu_projects_query->have_posts() ) :
+					while ( $kudu_projects_query->have_posts() ) :
+						$kudu_projects_query->the_post();
+						$loc = get_post_meta( get_the_ID(), '_kudu_location', true );
+						?>
+						<a href="<?php echo esc_url( get_permalink() ); ?>" class="group block">
+							<div class="overflow-hidden">
+								<img
+									src="<?php echo kudu_project_image(); ?>"
+									alt="<?php echo esc_attr( get_the_title() ); ?>"
+									class="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-105"
+								>
+							</div>
+							<p class="mt-3 text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-muted">
+								<?php echo esc_html( $loc ? $loc : 'Project' ); ?>
+							</p>
+							<h3 class="mt-1 font-serif text-[18px] font-bold text-kudu-navy"><?php echo esc_html( get_the_title() ); ?></h3>
+						</a>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				else :
+					foreach ( $kudu_projects as $project ) :
+						?>
+						<a href="<?php echo kudu_url( 'contract' ); ?>" class="group block">
+							<div class="overflow-hidden">
+								<img
+									src="<?php echo kudu_img( $project[0] ); ?>"
+									alt="<?php echo esc_attr( $project[1] ); ?>"
+									class="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-105"
+								>
+							</div>
+							<p class="mt-3 text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-muted">
+								Project
+							</p>
+							<h3 class="mt-1 text-[18px] font-bold text-kudu-navy"><?php echo esc_html( $project[1] ); ?></h3>
+						</a>
+						<?php
+					endforeach;
+				endif;
+				?>
 			</div>
 		</div>
 	</section>

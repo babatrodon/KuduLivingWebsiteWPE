@@ -14,8 +14,8 @@ get_header();
 // Filter chips — static, styled; first one active.
 $kudu_filters = array( 'ALL', 'RESIDENTIAL', 'HOSPITALITY', 'WORKPLACE' );
 
-// Editorial cards: [image, category label, title].
-$kudu_projects = array(
+// Editorial cards fallback: [image, category label, title].
+$kudu_projects_fallback = array(
 	array( 'inspirations/scene-01.jpg', 'RESIDENTIAL',  'Cape Villa' ),
 	array( 'inspirations/scene-02.jpg', 'HOSPITALITY',  'The Oak Room' ),
 	array( 'inspirations/scene-03.jpg', 'WORKPLACE',    'Studio Loft' ),
@@ -85,23 +85,52 @@ $kudu_projects = array(
 	<!-- EDITORIAL GRID (2-col) -->
 	<div class="mx-auto w-full max-w-[1440px] px-5 py-[40px] md:px-[68px]">
 		<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-			<?php foreach ( $kudu_projects as $p ) : ?>
-				<a href="<?php echo kudu_url( 'inspiration' ); ?>" class="group block cursor-pointer">
-					<div class="overflow-hidden">
-						<img
-							src="<?php echo kudu_img( $p[0] ); ?>"
-							alt="<?php echo esc_attr( $p[2] ); ?>"
-							class="aspect-[16/10] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-						>
-					</div>
-					<p class="mt-4 text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-muted">
-						<?php echo esc_html( $p[1] ); ?>
-					</p>
-					<h3 class="mt-2 font-serif text-[22px] font-bold text-kudu-navy">
-						<?php echo esc_html( $p[2] ); ?>
-					</h3>
-				</a>
-			<?php endforeach; ?>
+			<?php
+			$kudu_projects = new WP_Query( array( 'post_type' => 'project', 'posts_per_page' => 6, 'no_found_rows' => true ) );
+			if ( $kudu_projects->have_posts() ) :
+				while ( $kudu_projects->have_posts() ) : $kudu_projects->the_post();
+					$cat = get_post_meta( get_the_ID(), '_kudu_category', true );
+					?>
+					<a href="<?php echo esc_url( get_permalink() ); ?>" class="group block cursor-pointer">
+						<div class="overflow-hidden">
+							<img
+								src="<?php echo esc_url( kudu_project_image() ); ?>"
+								alt="<?php echo esc_attr( get_the_title() ); ?>"
+								class="aspect-[16/10] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+							>
+						</div>
+						<p class="mt-4 text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-muted">
+							<?php echo esc_html( $cat ); ?>
+						</p>
+						<h3 class="mt-2 font-serif text-[22px] font-bold text-kudu-navy">
+							<?php echo esc_html( get_the_title() ); ?>
+						</h3>
+					</a>
+					<?php
+				endwhile;
+				wp_reset_postdata();
+			else :
+				foreach ( $kudu_projects_fallback as $p ) :
+					?>
+					<a href="<?php echo kudu_url( 'inspiration' ); ?>" class="group block cursor-pointer">
+						<div class="overflow-hidden">
+							<img
+								src="<?php echo kudu_img( $p[0] ); ?>"
+								alt="<?php echo esc_attr( $p[2] ); ?>"
+								class="aspect-[16/10] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+							>
+						</div>
+						<p class="mt-4 text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-muted">
+							<?php echo esc_html( $p[1] ); ?>
+						</p>
+						<h3 class="mt-2 font-serif text-[22px] font-bold text-kudu-navy">
+							<?php echo esc_html( $p[2] ); ?>
+						</h3>
+					</a>
+					<?php
+				endforeach;
+			endif;
+			?>
 		</div>
 	</div>
 
