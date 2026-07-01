@@ -83,9 +83,9 @@ $kudu_scenes = array(
 			<img src="<?php echo kudu_img( $scene['img'] ); ?>" alt="Kudu Living interior" class="h-full w-full object-cover">
 			<?php foreach ( $scene['spots'] as $sp ) : ?>
 				<div class="absolute" style="left:<?php echo (int) $sp[0]; ?>%;top:<?php echo (int) $sp[1]; ?>%">
-					<button data-hotspot type="button" class="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-white/85 text-kudu-navy shadow animate-[bb-hotspot-pulse_2.5s_ease-out_infinite]" aria-label="<?php echo esc_attr( $sp[2] ); ?>"><?php echo kudu_icon( 'plus', 'width="18" height="18"' ); ?></button>
-					<div data-popup class="absolute left-1/2 top-[44px] hidden w-[240px] -translate-x-1/2 bg-white text-left shadow-xl">
-						<img src="<?php echo kudu_img( $sp[4] ); ?>" alt="<?php echo esc_attr( $sp[2] ); ?>" class="h-[140px] w-full object-cover">
+					<button data-hotspot type="button" class="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white/85 text-kudu-navy shadow animate-[bb-hotspot-pulse_2.5s_ease-out_infinite] md:h-[34px] md:w-[34px]" aria-label="<?php echo esc_attr( $sp[2] ); ?>"><?php echo kudu_icon( 'plus', 'width="18" height="18"' ); ?></button>
+					<div data-popup class="absolute left-1/2 top-[40px] hidden w-[180px] max-w-[70vw] -translate-x-1/2 bg-white text-left shadow-xl sm:w-[240px]">
+						<img src="<?php echo kudu_img( $sp[4] ); ?>" alt="<?php echo esc_attr( $sp[2] ); ?>" class="h-[110px] w-full object-cover sm:h-[140px]">
 						<div class="p-4">
 							<div class="text-[11px] uppercase tracking-[1px] text-kudu-muted"><?php echo esc_html( $sp[3] ); ?></div>
 							<div class="font-serif text-[18px] text-kudu-navy"><?php echo esc_html( $sp[2] ); ?></div>
@@ -98,11 +98,11 @@ $kudu_scenes = array(
 	<?php endforeach; ?>
 	<div class="pointer-events-none absolute inset-x-0 top-0 z-20 bg-gradient-to-b from-black/40 to-transparent pb-16 pt-16">
 		<div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
-			<h2 class="font-serif text-[30px] text-white md:text-[40px]">Pieces in their place</h2>
+			<h2 class="font-serif text-[24px] text-white md:text-[40px]">Pieces in their place</h2>
 		</div>
 	</div>
-	<button data-inspo-prev type="button" class="absolute left-6 top-1/2 z-20 flex h-[56px] w-[56px] -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-kudu-navy shadow hover:bg-white" aria-label="Previous"><?php echo kudu_icon( 'chevron-left', 'width="22" height="22"' ); ?></button>
-	<button data-inspo-next type="button" class="absolute right-6 top-1/2 z-20 flex h-[56px] w-[56px] -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-kudu-navy shadow hover:bg-white" aria-label="Next"><?php echo kudu_icon( 'chevron-right', 'width="22" height="22"' ); ?></button>
+	<button data-inspo-prev type="button" class="absolute left-3 top-1/2 z-20 flex h-[44px] w-[44px] -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-kudu-navy shadow hover:bg-white md:left-6 md:h-[56px] md:w-[56px]" aria-label="Previous"><?php echo kudu_icon( 'chevron-left', 'width="22" height="22"' ); ?></button>
+	<button data-inspo-next type="button" class="absolute right-3 top-1/2 z-20 flex h-[44px] w-[44px] -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-kudu-navy shadow hover:bg-white md:right-6 md:h-[56px] md:w-[56px]" aria-label="Next"><?php echo kudu_icon( 'chevron-right', 'width="22" height="22"' ); ?></button>
 </section>
 
 <!-- COLLECTIONS (Indoor / Outdoor tiles) -->

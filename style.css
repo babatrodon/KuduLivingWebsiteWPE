@@ -3,8 +3,8 @@ Theme Name: Kudu Living
 Theme URI: https://github.com/babatrodon/KuduLivingWebsiteWPE
 Author: Kudu Living
 Author URI: https://kuduliving.com
-Description: Kudu Living — an editorial furniture theme. A faithful re-skin of a B&B-Italia-style layout into the Kudu brand system: Cormorant Garamond + Avenir Next LT Pro, Comet Navy / Scooter Teal / warm-sand palette, kudu logo. Rich homepage (hero carousel, product hotspots), mega-menu, product & editorial templates. The compiled utility stylesheet ships in /assets/css/theme.css — no build step needed on the server.
-Version: 2.0.0
+Description: Kudu Living — an editorial furniture theme. A faithful re-skin of a B&B-Italia-style layout into the Kudu brand system: Cormorant Garamond + Avenir Next LT Pro, Comet Navy / Scooter Teal / warm-sand palette, kudu logo. Rich, mobile-first homepage (hero carousel, product hotspots), mega-menu, product & editorial templates. The compiled utility stylesheet ships in /assets/css/theme.css — no build step needed on the server.
+Version: 2.1.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -12,6 +12,9 @@ License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: kudu-living
 Tags: furniture, editorial, custom-menu, full-width-template, custom-logo, e-commerce
+Update URI: https://github.com/babatrodon/KuduLivingWebsiteWPE
+GitHub Theme URI: https://github.com/babatrodon/KuduLivingWebsiteWPE
+Primary Branch: main
 */
 
 /* Theme metadata lives here for WordPress. All visual styling is compiled into

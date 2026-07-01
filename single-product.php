@@ -40,7 +40,7 @@ while ( have_posts() ) :
 
 		<!-- Gallery -->
 		<section data-kudu-gallery class="mx-auto mt-6 w-full max-w-[1440px] px-5 md:px-[68px]">
-			<div class="flex h-[460px] items-center justify-center overflow-hidden bg-white">
+			<div class="flex h-[320px] items-center justify-center overflow-hidden bg-white md:h-[460px]">
 				<img data-gallery-main src="<?php echo esc_url( $kudu_main ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="h-full w-full object-contain">
 			</div>
 			<div class="mt-4 grid grid-cols-4 gap-4">
@@ -97,15 +97,15 @@ while ( have_posts() ) :
 
 	<!-- Sticky bottom bar -->
 	<div class="fixed bottom-0 left-0 right-0 z-40 border-t border-kudu-line bg-white">
-		<div class="mx-auto flex w-full max-w-[1440px] items-center justify-between px-5 py-3 md:px-[68px]">
-			<div class="flex items-center gap-3">
-				<img src="<?php echo esc_url( $kudu_main ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="h-12 w-12 object-cover">
-				<div>
-					<div class="font-serif text-[16px] font-semibold text-kudu-navy"><?php the_title(); ?></div>
+		<div class="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-3 px-4 py-2.5 md:px-[68px] md:py-3">
+			<div class="flex min-w-0 items-center gap-3">
+				<img src="<?php echo esc_url( $kudu_main ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="hidden h-12 w-12 shrink-0 object-cover sm:block">
+				<div class="min-w-0">
+					<div class="truncate font-serif text-[16px] font-semibold text-kudu-navy"><?php the_title(); ?></div>
 					<div class="text-[13px] text-kudu-muted"><?php echo esc_html( $kudu_category ); ?></div>
 				</div>
 			</div>
-			<a href="<?php echo kudu_url( 'contact' ); ?>" class="inline-flex h-[50px] items-center rounded-none bg-kudu-navy px-9 text-[12px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-kudu-navy-deep">Find the nearest showroom</a>
+			<a href="<?php echo kudu_url( 'contact' ); ?>" class="inline-flex h-[46px] shrink-0 items-center whitespace-nowrap rounded-none bg-kudu-navy px-5 text-[11px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-kudu-navy-deep md:h-[50px] md:px-9 md:text-[12px]"><span class="sm:hidden">Find a store</span><span class="hidden sm:inline">Find the nearest showroom</span></a>
 		</div>
 	</div>
 
