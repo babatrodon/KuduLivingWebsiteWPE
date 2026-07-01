@@ -9,3 +9,7 @@ desktop.ini
 # Fuse / temp
 .fuse_hidden*
 *~
+
+# node build deps
+node_modules/
+package-lock.json

@@ -1,65 +1,111 @@
 <?php
 /**
  * Template Name: Kudu — Inspiration
+ *
+ * Inspiration page — re-skin of the reference "Be Inspired" editorial page:
+ * dark quote hero (under the fixed 100px header), static filter chips, and a
+ * two-column editorial grid of Kudu project cards.
+ *
  * @package Kudu_Living
  */
 
 get_header();
+
+// Filter chips — static, styled; first one active.
+$kudu_filters = array( 'ALL', 'RESIDENTIAL', 'HOSPITALITY', 'WORKPLACE' );
+
+// Editorial cards: [image, category label, title].
+$kudu_projects = array(
+	array( 'inspirations/scene-01.jpg', 'RESIDENTIAL',  'Cape Villa' ),
+	array( 'inspirations/scene-02.jpg', 'HOSPITALITY',  'The Oak Room' ),
+	array( 'inspirations/scene-03.jpg', 'WORKPLACE',    'Studio Loft' ),
+	array( 'sections/contract.jpg',     'RESIDENTIAL',  'Garden House' ),
+	array( 'inspirations/scene-05.jpg', 'HOSPITALITY',  'Harbour Suite' ),
+	array( 'categories/outdoor.jpg',    'RESIDENTIAL',  'Savanna House' ),
+);
 ?>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="page-hero__bg"></div>
-  <div class="wrap">
-    <p class="crumbs">Home / Inspiration</p>
-    <h1 class="reveal">Pieces in<br>their place.</h1>
-    <p class="lead mt-2 reveal" style="color:rgba(255,255,255,.82);max-width:54ch">Our furniture lives in homes, hotels, restaurants and workplaces. Here is how designers and clients put Kudu Living to work.</p>
-  </div>
-</section>
+<main class="bg-kudu-bg text-kudu-navy">
 
-<!-- FILTERS -->
-<section class="section wrap" style="padding-bottom:0">
-  <div class="filters reveal">
-    <span class="chip is-active">All projects</span>
-    <span class="chip">Residential</span>
-    <span class="chip">Hospitality</span>
-    <span class="chip">Workplace</span>
-    <span class="chip">Retail</span>
-  </div>
-</section>
+	<!-- DARK QUOTE HERO -->
+	<section class="relative flex h-[430px] w-full items-center justify-center overflow-hidden bg-kudu-navy text-white">
+		<!-- Breadcrumb top-left (content sits under the fixed 100px header) -->
+		<div class="absolute left-0 top-0 w-full">
+			<div class="mx-auto w-full max-w-[1440px] px-5 pt-[110px] md:px-[68px]">
+				<p class="text-[13px] text-white/70">Home | Inspiration</p>
+			</div>
+		</div>
 
-<!-- GALLERY -->
-<section class="section wrap" style="padding-top:36px">
-  <div class="gallery-grid">
-    <a href="#" class="gal big reveal"><div class="ph ph--wood"></div><div class="lab"><div class="t">Cape Villa</div><div class="s">Residential · Full interior</div></div></a>
-    <a href="#" class="gal small reveal"><div class="ph ph--indigo"></div><div class="lab"><div class="t">The Oak Room</div><div class="s">Hospitality · Restaurant</div></div></a>
-    <a href="#" class="gal tall reveal"><div class="ph ph--navy"></div><div class="lab"><div class="t">Studio Loft</div><div class="s">Workplace</div></div></a>
-    <a href="#" class="gal wide reveal"><div class="ph ph--sand"></div><div class="lab"><div class="t">Garden House</div><div class="s">Residential · Kitchen</div></div></a>
-    <a href="#" class="gal third reveal"><div class="ph ph--govbay"></div><div class="lab"><div class="t">Harbour Suite</div><div class="s">Hospitality · Hotel</div></div></a>
-    <a href="#" class="gal third reveal"><div class="ph ph--pattern"></div><div class="lab"><div class="t">The Reading Room</div><div class="s">Retail</div></div></a>
-    <a href="#" class="gal third reveal"><div class="ph ph--wood"></div><div class="lab"><div class="t">Hillside Home</div><div class="s">Residential</div></div></a>
-    <a href="#" class="gal wide reveal"><div class="ph ph--indigo"></div><div class="lab"><div class="t">Atelier Café</div><div class="s">Hospitality</div></div></a>
-    <a href="#" class="gal small reveal"><div class="ph ph--sand"></div><div class="lab"><div class="t">North Office</div><div class="s">Workplace</div></div></a>
-  </div>
-  <div class="center mt-3 reveal"><a href="#" class="btn btn--ghost">Load more projects</a></div>
-</section>
+		<!-- Centered quote -->
+		<div class="px-5 text-center">
+			<p class="font-serif text-[40px] font-bold leading-tight text-white/90">
+				Furniture shapes how people
+				<br />
+				live, feel and connect.
+			</p>
+			<p class="mt-6 text-[22px] font-serif text-white/70">
+				Kudu Living
+			</p>
+		</div>
 
-<!-- QUOTE BAND -->
-<section class="band section">
-  <div class="wrap">
-    <p class="eyebrow reveal">Why designers choose us</p>
-    <p class="quote reveal mt-2">A single statement piece or a full fit-out — made to measure, made to last.</p>
-  </div>
-</section>
+		<!-- Bottom-left overlay -->
+		<div class="absolute bottom-0 left-0 w-full">
+			<div class="mx-auto w-full max-w-[1440px] px-5 pb-10 md:px-[68px]">
+				<p class="text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-teal">
+					Inspiration
+				</p>
+				<h2 class="mt-3 font-serif text-[30px] font-bold text-white">
+					Pieces in their place
+				</h2>
+				<a
+					href="<?php echo kudu_url( 'inspiration' ); ?>"
+					class="mt-5 inline-flex h-[50px] items-center rounded-none border border-white/90 bg-transparent px-9 text-[12px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-white hover:text-kudu-navy"
+				>
+					Discover Now
+				</a>
+			</div>
+		</div>
+	</section>
 
-<!-- CTA -->
-<section class="band--indigo section">
-  <div class="wrap center">
-    <p class="eyebrow reveal">For trade &amp; designers</p>
-    <h2 class="reveal mt-1" style="margin-inline:auto;max-width:22ch">Bring Kudu Living into your next project</h2>
-    <div class="mt-3 reveal"><a href="<?php echo kudu_url( 'contact' ); ?>" class="btn btn--light">Talk to our contract team</a></div>
-  </div>
-</section>
+	<!-- FILTER TABS (static chips, first active) -->
+	<div class="border-b border-kudu-navy/10 bg-kudu-bg py-[24px]">
+		<div class="flex items-center justify-center gap-10">
+			<?php foreach ( $kudu_filters as $i => $filter ) : ?>
+				<span
+					class="<?php echo 0 === $i
+						? 'border-b-2 border-kudu-navy pb-1 font-bold text-kudu-navy'
+						: 'font-normal text-kudu-muted transition-colors hover:text-kudu-navy'; ?> text-[14px] uppercase tracking-[0.5px]"
+				>
+					<?php echo esc_html( $filter ); ?>
+				</span>
+			<?php endforeach; ?>
+		</div>
+	</div>
+
+	<!-- EDITORIAL GRID (2-col) -->
+	<div class="mx-auto w-full max-w-[1440px] px-5 py-[40px] md:px-[68px]">
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+			<?php foreach ( $kudu_projects as $p ) : ?>
+				<a href="<?php echo kudu_url( 'inspiration' ); ?>" class="group block cursor-pointer">
+					<div class="overflow-hidden">
+						<img
+							src="<?php echo kudu_img( $p[0] ); ?>"
+							alt="<?php echo esc_attr( $p[2] ); ?>"
+							class="aspect-[16/10] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+						>
+					</div>
+					<p class="mt-4 text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-muted">
+						<?php echo esc_html( $p[1] ); ?>
+					</p>
+					<h3 class="mt-2 font-serif text-[22px] font-bold text-kudu-navy">
+						<?php echo esc_html( $p[2] ); ?>
+					</h3>
+				</a>
+			<?php endforeach; ?>
+		</div>
+	</div>
+
+</main>
 
 <?php
 get_footer();

@@ -1,0 +1,14 @@
+{
+  "name": "kudu-living-theme",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Build tooling for the Kudu Living WordPress theme (compiles the Tailwind utility stylesheet).",
+  "scripts": {
+    "build:css": "tailwindcss -i build/kudu.css -o assets/css/theme.css --minify",
+    "watch:css": "tailwindcss -i build/kudu.css -o assets/css/theme.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
+  }
+}

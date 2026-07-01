@@ -1,32 +1,29 @@
 <?php
 /**
- * Generic page template (branded fallback for any WordPress Page
- * that is not assigned one of the "Kudu — …" page templates).
+ * Generic page (branded fallback for pages without a "Kudu — …" template).
  *
  * @package Kudu_Living
  */
 
 get_header();
 ?>
-
-<section class="page-hero">
-	<div class="page-hero__bg"></div>
-	<div class="wrap">
-		<p class="crumbs"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> &nbsp;·&nbsp; <?php the_title(); ?></p>
-		<h1><?php the_title(); ?></h1>
-	</div>
-</section>
-
-<section class="section wrap">
-	<div class="reveal" style="max-width:80ch">
-		<?php
-		while ( have_posts() ) :
-			the_post();
-			the_content();
-		endwhile;
-		?>
-	</div>
-</section>
-
+<main>
+	<section class="relative overflow-hidden bg-kudu-navy pt-[150px] pb-[70px] text-white">
+		<div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
+			<p class="mb-4 text-[12px] uppercase tracking-[0.14em] text-kudu-teal"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> &nbsp;|&nbsp; <?php the_title(); ?></p>
+			<h1 class="font-serif text-[44px] leading-[1.05]"><?php the_title(); ?></h1>
+		</div>
+	</section>
+	<section class="mx-auto w-full max-w-[1440px] px-5 py-[60px] md:px-[68px]">
+		<div class="max-w-[80ch] text-[16px] leading-relaxed text-kudu-navy">
+			<?php
+			while ( have_posts() ) :
+				the_post();
+				the_content();
+			endwhile;
+			?>
+		</div>
+	</section>
+</main>
 <?php
 get_footer();

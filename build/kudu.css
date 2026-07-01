@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* Scan the theme's PHP templates for utility classes. */
+@source "../**/*.php";
+
+/* ============================================================
+   KUDU LIVING — re-skin of the B&B-Italia clone design.
+   Same utility classes as the original build; only the TOKEN
+   VALUES and fonts change, so the whole layout re-brands to Kudu.
+   ============================================================ */
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: "Avenir Next LT Pro", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-heading: var(--font-serif);
+
+  /* --- Kudu brand tokens (re-skinning the clone's bb-* names) --- */
+  --color-bb-bg: #f6f5f1;      /* soft warm paper (was #f3f5f5) */
+  --color-bb-ink: #202a44;     /* Comet Navy (was #3c3c3b)      */
+  --color-bb-white: #ffffff;
+  --color-bb-red: #202a44;     /* primary CTA = navy (was red)  */
+  --color-bb-grey: #1a2238;    /* deep navy footer (was #6e7678)*/
+  --color-bb-header: rgba(26, 34, 56, 0.85);
+
+  /* --- Kudu palette (available as bg-kudu-* / text-kudu-*) --- */
+  --color-kudu-bg: #f6f5f1;
+  --color-kudu-navy: #202a44;
+  --color-kudu-navy-deep: #1a2238;
+  --color-kudu-teal: #35c2d6;
+  --color-kudu-indigo: #203e45;
+  --color-kudu-govbay: #4552a3;
+  --color-kudu-sand: #c4bfa3;
+  --color-kudu-sand-soft: #e9e6dc;
+  --color-kudu-line: #e2e0d8;
+  --color-kudu-muted: #6a7184;
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+/* ---------- Brand fonts (self-hosted) ---------- */
+@font-face{font-family:"Avenir Next LT Pro";src:url("../fonts/AvenirNextLTPro-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Avenir Next LT Pro";src:url("../fonts/AvenirNextLTPro-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Avenir Next LT Pro";src:url("../fonts/AvenirNextLTPro-Demi.otf") format("opentype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Avenir Next LT Pro";src:url("../fonts/AvenirNextLTPro-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url("../fonts/CormorantGaramond-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url("../fonts/CormorantGaramond-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url("../fonts/CormorantGaramond-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+/* SemiBold covers 600 AND 700 so `font-bold` headings stay elegant, not faux-heavy */
+@font-face{font-family:"Cormorant Garamond";src:url("../fonts/CormorantGaramond-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url("../fonts/CormorantGaramond-SemiBold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  --background:#ffffff;
+  --foreground:#202a44;
+  --primary:#202a44;
+  --primary-foreground:#ffffff;
+  --muted:#f6f5f1;
+  --muted-foreground:#6a7184;
+  --border:#e2e0d8;
+  --input:#e2e0d8;
+  --ring:#35c2d6;
+  --radius:0.625rem;
+}
+
+@layer base{
+  *{border-color:var(--border)}
+  body{
+    background:var(--background);
+    color:var(--foreground);
+    font-family:var(--font-sans);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  /* Kudu headings are Cormorant Garamond (serif) */
+  h1,h2,h3,h4,h5{font-family:var(--font-serif);letter-spacing:.005em}
+  /* WordPress admin bar offset for the fixed header */
+  .admin-bar .kudu-fixed-top{top:32px}
+  @media(max-width:782px){.admin-bar .kudu-fixed-top{top:46px}}
+}
+
+/* Product Inspirations "+" hotspot pulse (referenced by arbitrary animate-[...]) */
+@keyframes bb-hotspot-pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}
+  70%{box-shadow:0 0 0 12px rgba(255,255,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
+}
+@keyframes bb-fade-in{from{opacity:0}to{opacity:1}}
+
+.screen-reader-text{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
