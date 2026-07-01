@@ -13,3 +13,6 @@ desktop.ini
 # node build deps
 node_modules/
 package-lock.json
+
+# packaged theme zips
+*.zip
