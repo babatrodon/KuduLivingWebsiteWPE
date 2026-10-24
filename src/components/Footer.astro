@@ -1,0 +1,45 @@
+---
+import Icon from "./Icon.astro";
+import { SITE_NAME } from "../lib/content";
+
+const collections = ["Kitchen", "Wardrobe", "Closet", "Sofas", "Chairs", "Tables"];
+const socials = ["instagram", "pinterest", "facebook", "youtube", "linkedin"] as const;
+const year = new Date().getUTCFullYear();
+---
+<footer class="bg-kudu-navy-deep pt-[60px] text-white/80">
+  <div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
+    <div class="grid grid-cols-1 gap-10 pb-14 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+      <div>
+        <img src="/assets/img/kudu-logo-horizontal-white.svg" alt={SITE_NAME} class="mb-6 h-[42px] w-auto">
+        <p class="max-w-[36ch] text-[14px] leading-relaxed">Furniture and wood-based interiors, made to bring warmth, comfort and character to every space.</p>
+      </div>
+      <div>
+        <h5 class="mb-4 text-[13px] font-semibold uppercase tracking-[0.16em] text-white">Collections</h5>
+        {collections.map((c) => (
+          <a href="/collections/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">{c}</a>
+        ))}
+      </div>
+      <div>
+        <h5 class="mb-4 text-[13px] font-semibold uppercase tracking-[0.16em] text-white">Company</h5>
+        <a href="/about/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">About</a>
+        <a href="/about/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Craftsmanship</a>
+        <a href="/about/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Sustainability</a>
+        <a href="/contact/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Contact</a>
+      </div>
+      <div>
+        <h5 class="mb-4 text-[13px] font-semibold uppercase tracking-[0.16em] text-white">Visit</h5>
+        <a href="/contact/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Showroom</a>
+        <a href="/contact/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Trade enquiries</a>
+        <div class="mt-4 flex items-center gap-[18px]">
+          {socials.map((s) => (
+            <a href="#" aria-label={s} class="text-white transition-opacity hover:opacity-70"><Icon name={s} size={20} /></a>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-3 border-t border-white/12 py-6 text-[13px] md:flex-row md:items-center md:justify-between">
+      <span>&copy; {year} {SITE_NAME}. All rights reserved.</span>
+      <span class="text-kudu-teal">Rooted in Nature.</span>
+    </div>
+  </div>
+</footer>

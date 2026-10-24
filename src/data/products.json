@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "marula-wardrobe",
+    "title": "Marula Wardrobe",
+    "designer": "Kudu Studio",
+    "price": "£3,420",
+    "category": "Wardrobe",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_wallsystem_Jack_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "kudu-ottoman",
+    "title": "Kudu Ottoman",
+    "designer": "Kudu Studio",
+    "price": "£720",
+    "category": "Complements",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_ottoman_Hive_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "aloe-side-table",
+    "title": "Aloe Side Table",
+    "designer": "Kudu Studio",
+    "price": "£540",
+    "category": "Small Tables",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_small-table_Surface_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "thorn-coffee-table",
+    "title": "Thorn Coffee Table",
+    "designer": "Kudu Studio",
+    "price": "£1,180",
+    "category": "Small Tables",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_small-table_Diesis_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "acacia-dining-table",
+    "title": "Acacia Dining Table",
+    "designer": "Kudu Studio",
+    "price": "£2,750",
+    "category": "Tables",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_table_Alex_01_7.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "karoo-chair",
+    "title": "Karoo Chair",
+    "designer": "Kudu Studio",
+    "price": "£680",
+    "category": "Chairs",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_chair_Jens_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "harbour-chair",
+    "title": "Harbour Chair",
+    "designer": "Kudu Studio",
+    "price": "£1,490",
+    "category": "Chairs",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_armchair_Harbor_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "impala-armchair",
+    "title": "Impala Armchair",
+    "designer": "Kudu Studio",
+    "price": "£1,620",
+    "category": "Chairs",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_armchair_Metropolitan_Relax_05.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "nyala-lounge-chair",
+    "title": "Nyala Lounge Chair",
+    "designer": "Kudu Studio",
+    "price": "£1,840",
+    "category": "Chairs",
+    "isNew": false,
+    "image": "/assets/img/site/products/bebitalia_armchair_Grande-Papilio_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "serengeti-sofa",
+    "title": "Serengeti Sofa",
+    "designer": "Kudu Studio",
+    "price": "£4,650",
+    "category": "Sofas",
+    "isNew": true,
+    "image": "/assets/img/site/products/bebitalia_sofa_Charles-Large_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "savanna-sofa",
+    "title": "Savanna Sofa",
+    "designer": "Kudu Studio",
+    "price": "£3,980",
+    "category": "Sofas",
+    "isNew": true,
+    "image": "/assets/img/site/products/bebitalia_sofa_Charles_01.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  },
+  {
+    "slug": "kalahari-sofa",
+    "title": "Kalahari Sofa",
+    "designer": "Kudu Studio",
+    "price": "£4,290",
+    "category": "Sofas",
+    "isNew": true,
+    "image": "/assets/img/site/products/bebitalia_sofa_Tufty-Time_20_05.jpg",
+    "description": "Built around how people really live — solid oak, hand-finished surfaces and natural, tactile materials. A quiet, considered piece designed to be used every day and to age beautifully over the years."
+  }
+]
