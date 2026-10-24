@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kudu-living",
+  "account_id": "380795ada163b2a9cccba7590627cf8c",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "vars": {
+    // Where enquiries are delivered (comma-separate several addresses).
+    "CONTACT_TO": "hello@kuduliving.com",
+    // Must be on a domain verified in Resend.
+    "CONTACT_FROM": "Kudu Living Website <website@kuduliving.com>"
+  }
+  // RESEND_API_KEY is a secret: `npx wrangler secret put RESEND_API_KEY`
+}

@@ -1,14 +1,31 @@
 {
-  "name": "kudu-living-theme",
-  "version": "2.0.0",
+  "name": "kudu-living",
+  "version": "3.0.0",
   "private": true,
-  "description": "Build tooling for the Kudu Living WordPress theme (compiles the Tailwind utility stylesheet).",
+  "type": "module",
   "scripts": {
-    "build:css": "tailwindcss -i build/kudu.css -o assets/css/theme.css --minify",
-    "watch:css": "tailwindcss -i build/kudu.css -o assets/css/theme.css --watch"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro build && wrangler dev",
+    "deploy": "astro build && wrangler deploy",
+    "check": "astro check",
+    "build:css": "tailwindcss -i tailwind/kudu.css -o public/assets/css/theme.css --minify",
+    "types": "wrangler types"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.4.2",
+    "astro": "^7.4.2"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@tailwindcss/cli": "^4.3.2",
-    "tailwindcss": "^4.3.2"
+    "tailwindcss": "^4.3.2",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.152.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261019.1": true,
+    "@parcel/watcher": false
   }
 }

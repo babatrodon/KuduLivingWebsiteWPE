@@ -1,0 +1,10 @@
+[
+  { "slug": "wine-estate", "title": "Wine Estate", "location": "Constantia", "category": "Hospitality", "image": "/assets/img/site/categories/outdoor.jpg", "description": "A Kudu Living interior — furniture and wood-based detailing crafted for the space." },
+  { "slug": "corporate-hq", "title": "Corporate HQ", "location": "New York", "category": "Workplace", "image": "/assets/img/site/categories/indoor.jpg", "description": "A Kudu Living interior — furniture and wood-based detailing crafted for the space." },
+  { "slug": "savanna-house", "title": "Savanna House", "location": "Stellenbosch", "category": "Residential", "image": "/assets/img/site/inspirations/scene-05.jpg", "description": "A Kudu Living interior — furniture and wood-based detailing crafted for the space." },
+  { "slug": "harbour-suite", "title": "Harbour Suite", "location": "Cape Town", "category": "Hospitality", "image": "/assets/img/site/inspirations/scene-04.jpg", "description": "A Kudu Living interior — furniture and wood-based detailing crafted for the space." },
+  { "slug": "garden-house", "title": "Garden House", "location": "Franschhoek", "category": "Residential", "image": "/assets/img/site/inspirations/scene-03.jpg", "description": "A Kudu Living interior — furniture and wood-based detailing crafted for the space." },
+  { "slug": "studio-loft", "title": "Studio Loft", "location": "Berlin", "category": "Workplace", "image": "/assets/img/site/inspirations/scene-02.jpg", "description": "A Kudu Living interior — furniture and wood-based detailing crafted for the space." },
+  { "slug": "the-oak-room", "title": "The Oak Room", "location": "London", "category": "Hospitality", "image": "/assets/img/site/inspirations/scene-01.jpg", "description": "A Kudu Living interior — furniture and wood-based detailing crafted for the space." },
+  { "slug": "safari-lodge", "title": "Safari Lodge", "location": "Cape Town", "category": "Hospitality", "image": "/assets/img/site/sections/contract.jpg", "description": "A Kudu Living interior — furniture and wood-based detailing crafted for the space." }
+]

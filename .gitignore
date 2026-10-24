@@ -6,13 +6,15 @@ desktop.ini
 .vscode/
 .idea/
 
-# Fuse / temp
-.fuse_hidden*
-*~
-
-# node build deps
+# dependencies / build output
 node_modules/
-package-lock.json
+dist/
+.astro/
+.wrangler/
 
-# packaged theme zips
+# local secrets
+.dev.vars
+.env
+
+# packaged zips
 *.zip

@@ -1,0 +1,33 @@
+---
+/* Single project — same layout the WordPress theme used for projects (its generic index template). */
+import Base from "../../layouts/Base.astro";
+import { projects, SITE_NAME, type Project } from "../../lib/content";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props as { project: Project };
+---
+<Base title={project.title}>
+<main>
+  <section class="bg-kudu-navy pt-[150px] pb-[70px] text-white">
+    <div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
+      <p class="mb-4 text-[12px] uppercase tracking-[0.14em] text-kudu-teal"><a href="/">Home</a> &nbsp;|&nbsp; Journal</p>
+      <h1 class="font-serif text-[44px] leading-[1.05]">{SITE_NAME}</h1>
+    </div>
+  </section>
+  <section class="mx-auto w-full max-w-[1440px] px-5 py-[60px] md:px-[68px]">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+      <a href={`/project/${project.slug}/`} class="group block">
+        <div class="aspect-[3/2] overflow-hidden bg-kudu-sand-soft">
+          <img src={project.image} alt={project.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="mt-4 text-[12px] uppercase tracking-[0.12em] text-kudu-teal">{project.category}</div>
+        <h3 class="mt-2 font-serif text-[22px] text-kudu-navy">{project.title}</h3>
+        <p class="mt-2 text-[15px] text-kudu-muted">{project.description}</p>
+      </a>
+    </div>
+  </section>
+</main>
+</Base>

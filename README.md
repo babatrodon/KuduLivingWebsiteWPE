@@ -1,109 +1,75 @@
-# Kudu Living — WordPress Theme
+# Kudu Living — website
 
-A hand-coded WordPress theme that re-skins a rich, **B&B-Italia-style editorial furniture layout** into the **Kudu Living** brand — Cormorant Garamond + Avenir Next LT Pro, Comet Navy / Scooter Teal / warm-sand palette, kudu logo. It ships with a **hero carousel**, a **product-inspiration hotspot section**, a **mega-menu**, editable **Products** and **Projects**, and product + editorial templates.
+The Kudu Living site, built with **Astro 7** and deployed to **Cloudflare Workers**.
+All pages are prerendered static HTML; the only server code is the contact-form endpoint, which sends enquiries through **Resend**.
 
-Fonts and logos are bundled and the utility CSS is pre-compiled, so **no build step is required on the server**.
+This replaces the former WordPress theme (last WordPress version: commit `d9090d6`). The markup, class names, compiled CSS and front-end script were carried over unchanged, so the pages render identically.
 
----
+## Commands
 
-## One-click setup (client-ready)
+```bash
+npm install        # once
+npm run dev        # local dev server on http://localhost:4321
+npm run build      # build to dist/
+npm run preview    # build + run the production Worker locally
+npm run deploy     # build + deploy to Cloudflare
+npm run check      # type-check
+```
 
-1. **Zip the theme** so `style.css` is at the top level (name it `kudu-living.zip`). On Hostinger you can instead upload the folder to `wp-content/themes/kudu-living/` via **hPanel › File Manager**. (You don't need `node_modules/` or `build/`.)
-2. **Appearance › Themes › Add New › Upload Theme** → Install → **Activate**.
-   - **On activation the theme auto-creates everything**: 12 sample **Products**, 8 **Projects**, the collection categories, and the pages (About, Inspiration, Contract, Contact, Find a Store, Catalogues, Library) with their templates already assigned.
-3. **Settings › Permalinks → Post name → Save** (this flushes the URLs so `/collections`, `/product/…`, etc. work).
+Requires Node 22+.
 
-That's it — the homepage, Collections listing, product pages, and every menu link work immediately with real, editable content.
+## Editing content
 
----
+| What | Where |
+|---|---|
+| Products (Collections grid + `/product/<slug>/` pages) | `src/data/products.json` |
+| Projects (Inspiration, Contract, `/project/<slug>/` pages) | `src/data/projects.json` |
+| Page copy | the matching file in `src/pages/` (e.g. `about.astro`, `contact.astro`) |
+| Header menus / footer | `src/components/Header.astro`, `src/components/Footer.astro` |
+| Images | `public/assets/img/site/…` (reference them as `/assets/img/site/…`) |
 
-## Automatic updates from GitHub (no more zip uploads)
+**Products** — each entry: `slug` (URL), `title`, `designer`, `price`, `category`, `isNew` (shows the "New" badge), `image`, `description` (blank line = new paragraph).
+The order in the file is the order on the Collections page, and the **first product** is the one the homepage "Discover the piece" and hotspot links open.
 
-The theme updates itself from this repo — a small self-contained updater is built in (`inc/github-updater.php`), no plugin or third-party library required.
+**Projects** — each entry: `slug`, `title`, `location`, `category` (Residential / Hospitality / Workplace), `image`, `description`.
+Inspiration shows the first 6, Contract the first 8.
 
-**To ship an update:**
-1. Make your changes and bump the `Version:` number in `style.css` (e.g. `2.1.0` → `2.1.1`).
-2. `git commit` and `git push` to `main`.
-3. On the WordPress site: **Dashboard › Updates** → *Kudu Living* shows an available update → click **Update**. (WordPress checks periodically; "Check again" forces it. The remote version is cached ~6h.)
+To add a product: copy an entry, give it a unique `slug`, drop its photo into `public/assets/img/site/products/`, point `image` at it, then commit + push (or `npm run deploy`).
 
-That's it — no zipping, no re-uploading. It pulls the latest `main` from GitHub and installs it into the same theme folder.
+## Contact form (Resend)
 
-> Public repo, so no access token is needed. If you later make the repo private, the updater would need a token (tell me and I'll add support).
+`src/pages/api/contact.ts` validates the form and emails it via the Resend API (with the visitor's address as reply-to). A hidden honeypot field filters basic bots.
 
----
+Configuration:
 
-## Editing content (in wp-admin)
+- `CONTACT_TO` / `CONTACT_FROM` — in `wrangler.jsonc` → `vars`. `CONTACT_FROM` must use a domain verified in Resend (add the DNS records Resend shows for `kuduliving.com`).
+- `RESEND_API_KEY` — a secret, never committed:
+  ```bash
+  npx wrangler secret put RESEND_API_KEY
+  ```
+  For local testing put `RESEND_API_KEY=...` in a `.dev.vars` file (git-ignored).
 
-- **Products** (left menu → *Products*): title, description (main editor), **Designer / Price / Category / "New" flag** (in the *Product details* box), and a **Featured Image**. The Collections grid at `/collections` and each `/product/…` page are generated from these.
-- **Projects** (*Projects*): title, description, **Location / Category** (Residential · Hospitality · Workplace), and a Featured Image. These feed the **Inspiration** and **Contract** pages.
-- **Images:** set a **Featured Image** on any product/project to replace its bundled placeholder photo. (Until you do, the demo image is used.)
-- **Pages:** edit copy on About / Contact / etc. like any WordPress page. The homepage is `front-page.php`.
-- **Menus / logo / colors:** the header nav is coded for the mega-menu; brand colors and fonts are tokens in `build/kudu.css` (see *Re-compiling* below).
+Until the key is set the form shows "Sorry, your message could not be sent. Please email hello@kuduliving.com."
 
----
+## Styling
+
+`public/assets/css/theme.css` is the compiled Tailwind 4 stylesheet; brand tokens and fonts live in `tailwind/kudu.css`.
+If you use a utility class that isn't in the stylesheet yet, rebuild it:
+
+```bash
+npm run build:css
+```
+
+Brand: Comet Navy `#202A44`, Scooter Teal `#35C2D6`, Japanese Indigo `#203E45`, Warm Sand `#C4BFA3`, Soft Sand `#E9E6DC`. Headings Cormorant Garamond, body Avenir Next LT Pro (self-hosted in `public/assets/fonts/`).
+
+## Deployment
+
+`npm run deploy` publishes the Worker `kudu-living` (static assets + `/api/contact/`) to `https://kudu-living.<account>.workers.dev`.
+To deploy automatically on every push, connect this repo under **Cloudflare dashboard → Workers & Pages → kudu-living → Settings → Builds** (build command `npm run build`, deploy command `npx wrangler deploy`).
+To serve it on `kuduliving.com`, add a custom domain on the same Worker (Settings → Domains & Routes) once the domain's DNS is on Cloudflare.
 
 ## Imagery note
 
-The furniture photography in `/assets/img/site/` is **placeholder imagery** used with permission while the site is built — **swap it for Kudu's own product/interior photos** before or after launch by setting Featured Images on the Products/Projects (or replacing the files in `/assets/img/site/…`, keeping the same names).
-
----
-
-## What's in the theme
-
-```
-style.css                 WordPress theme header (metadata)
-functions.php             Setup, enqueue, icon helper, Products/Projects CPTs,
-                          editable fields, and the one-time content seeder
-header.php / footer.php   Fixed navy header + mega-menu + drawer / footer
-front-page.php            Homepage: hero carousel, product hotspots, collections
-                          tiles, design service, contract banner, newsletter
-archive-product.php       Collections listing (/collections) — from Products
-single-product.php        Single product page — gallery, tabs, accordion, buy-bar
-template-about.php        About / Our Story
-template-inspiration.php  Inspiration — from Projects (demo fallback)
-template-contract.php     Contract — from Projects (demo fallback)
-template-contact.php      Contact (form + info)
-template-storelocator.php · template-catalogues.php · template-library.php
-page.php · index.php · 404.php   Branded fallbacks
-assets/
-  css/theme.css           Compiled Tailwind (Kudu-skinned)  ← loaded by the theme
-  js/main.js              Carousel, hotspots, gallery, tabs, mega-menu, drawer
-  fonts/                  Avenir Next LT Pro + Cormorant Garamond
-  img/                    kudu logos (SVG) + site/ (placeholder photography)
-build/kudu.css · package.json    Tailwind source + build scripts (dev only)
-```
-
----
-
-## Brand tokens
-
-| Role                 | Hex        |
-|----------------------|------------|
-| Primary (Comet Navy) | `#202A44`  |
-| Accent (Scooter Teal)| `#35C2D6`  |
-| Japanese Indigo      | `#203E45`  |
-| Warm Sand            | `#C4BFA3`  |
-| Soft Sand            | `#E9E6DC`  |
-| Deep Navy (footer)   | `#1A2238`  |
-| Muted text           | `#6A7184`  |
-
-Headings use **Cormorant Garamond**; body/nav/labels/buttons use **Avenir Next LT Pro** (both self-hosted).
-
----
-
-## Re-compiling the CSS (only if you change classes or brand tokens)
-
-```bash
-npm install        # one-time
-npm run build:css  # rebuild assets/css/theme.css   (or: npm run watch:css)
-```
-
-Edit brand colors/fonts in `build/kudu.css` and rebuild — every class re-skins from those values.
-
----
-
-## Contact form
-
-The contact form is static markup — connect it with a form plugin (Contact Form 7, WPForms, or Elementor Pro Forms).
+The furniture photography in `public/assets/img/site/` is placeholder imagery from the B&B Italia reference design. Replace it with Kudu's own photos before the site goes public.
 
 *Rooted in Nature.*

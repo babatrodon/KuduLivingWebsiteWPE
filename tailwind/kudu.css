@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-/* Scan the theme's PHP templates for utility classes. */
-@source "../**/*.php";
+/* Scan the Astro source and front-end script for utility classes. */
+@source "../src";
+@source "../public/assets/js";
 
 /* ============================================================
    KUDU LIVING — re-skin of the B&B-Italia clone design.
@@ -87,9 +88,6 @@
   }
   /* Kudu headings are Cormorant Garamond (serif) */
   h1,h2,h3,h4,h5{font-family:var(--font-serif);letter-spacing:.005em}
-  /* WordPress admin bar offset for the fixed header */
-  .admin-bar .kudu-fixed-top{top:32px}
-  @media(max-width:782px){.admin-bar .kudu-fixed-top{top:46px}}
 }
 
 /* Product Inspirations "+" hotspot pulse (referenced by arbitrary animate-[...]) */

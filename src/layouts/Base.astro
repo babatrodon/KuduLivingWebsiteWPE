@@ -1,0 +1,31 @@
+---
+/* Page shell: <head>, fixed header, footer and the shared front-end script. */
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_NAME } from "../lib/content";
+
+interface Props {
+  /** Page title; omitted on the homepage. */
+  title?: string;
+}
+
+const { title } = Astro.props;
+const fullTitle = title ? `${title} – ${SITE_NAME}` : SITE_NAME;
+---
+<!doctype html>
+<html lang="en-US">
+<head>
+  <script is:inline>document.documentElement.className+=' js';</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{fullTitle}</title>
+  <link rel="icon" href="/assets/img/kudu-symbol.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+</head>
+<body class="bg-white text-kudu-navy">
+  <Header />
+  <slot />
+  <Footer />
+  <script is:inline src="/assets/js/main.js"></script>
+</body>
+</html>
