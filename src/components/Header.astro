@@ -19,11 +19,11 @@ const about = {
   Sustainability: "about-sustainability.jpg", Showrooms: "about-network.jpg",
 };
 ---
-<header id="site-header" data-kudu-header class="kudu-fixed-top fixed left-0 right-0 top-0 z-50 h-[100px] bg-[#1a2238]/92 text-white backdrop-blur-sm transition-transform duration-300 ease-out">
+<header id="site-header" data-kudu-header class="kudu-fixed-top fixed left-0 right-0 top-0 z-50 h-[72px] bg-[#1a2238]/92 text-white backdrop-blur-sm transition-transform duration-300 ease-out md:h-[100px]">
   <div class="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-5 md:px-[68px]">
     <!-- Logo -->
     <a href="/" class="shrink-0" aria-label={`${SITE_NAME} — home`}>
-      <img src="/assets/img/kudu-logo-horizontal-white.svg" alt={SITE_NAME} class="h-[38px] w-auto">
+      <img src="/assets/img/kudu-logo-horizontal-white.svg" alt={SITE_NAME} class="h-[30px] w-auto md:h-[38px]">
     </a>
 
     <!-- Desktop nav -->
@@ -39,11 +39,11 @@ const about = {
     </nav>
 
     <!-- Right tools -->
-    <div class="flex items-center gap-5">
+    <div class="flex items-center gap-4 md:gap-5">
       <a href="/contact/" class="hidden h-[44px] items-center rounded-none bg-kudu-teal px-6 text-[12px] font-bold uppercase tracking-[1px] text-kudu-navy transition-colors hover:bg-[#2aa9bd] md:inline-flex">Trade Area</a>
-      <button type="button" class="text-white transition-opacity hover:opacity-70" aria-label="Search"><Icon name="search" size={22} /></button>
-      <a href="/contact/" class="text-white transition-opacity hover:opacity-70" aria-label="Showrooms"><Icon name="pin" size={22} /></a>
-      <button type="button" data-kudu-drawer-open class="text-white lg:hidden" aria-label="Menu">
+      <button type="button" class="-m-[11px] p-[11px] text-white transition-opacity hover:opacity-70" aria-label="Search"><Icon name="search" size={22} /></button>
+      <a href="/find-a-store/" class="-m-[11px] p-[11px] text-white transition-opacity hover:opacity-70" aria-label="Showrooms"><Icon name="pin" size={22} /></a>
+      <button type="button" data-kudu-drawer-open class="-m-[14px] p-[14px] text-white lg:hidden" aria-label="Menu" aria-expanded="false">
         <span class="block h-[2px] w-6 bg-white"></span>
         <span class="mt-[5px] block h-[2px] w-6 bg-white"></span>
         <span class="mt-[5px] block h-[2px] w-6 bg-white"></span>
@@ -100,8 +100,8 @@ const about = {
 </header>
 
 <!-- Mobile drawer -->
-<div data-kudu-drawer class="fixed inset-0 z-[200] translate-x-full overflow-auto bg-kudu-navy px-6 py-24 text-white transition-transform duration-300 ease-out">
-  <button type="button" data-kudu-drawer-close class="absolute right-6 top-6 text-3xl leading-none text-white" aria-label="Close">&times;</button>
+<div data-kudu-drawer class="fixed inset-0 z-[200] translate-x-full overflow-auto overscroll-contain bg-kudu-navy px-6 pb-10 pt-24 text-white transition-transform duration-300 ease-out" role="dialog" aria-modal="true" aria-label="Menu">
+  <button type="button" data-kudu-drawer-close class="absolute right-3 top-3 flex h-12 w-12 items-center justify-center text-3xl leading-none text-white" aria-label="Close">&times;</button>
   <nav class="flex flex-col">
     <a href="/about/" class="border-b border-white/10 py-3 font-serif text-2xl">About</a>
     <a href="/collections/" class="border-b border-white/10 py-3 font-serif text-2xl">Collections</a>
@@ -109,4 +109,11 @@ const about = {
     <a href="/contract/" class="border-b border-white/10 py-3 font-serif text-2xl">Contract</a>
     <a href="/contact/" class="border-b border-white/10 py-3 font-serif text-2xl">Trade Area</a>
   </nav>
+  <nav class="mt-8 flex flex-col text-[15px] text-white/80" aria-label="More">
+    <a href="/find-a-store/" class="py-3">Find a Store</a>
+    <a href="/catalogues/" class="py-3">Catalogues</a>
+    <a href="/library/" class="py-3">Library</a>
+    <a href="/contact/" class="py-3">Contact</a>
+  </nav>
+  <a href="/contact/" class="mt-8 flex h-[50px] items-center justify-center bg-kudu-teal text-[12px] font-bold uppercase tracking-[1px] text-kudu-navy">Book an appointment</a>
 </div>

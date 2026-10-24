@@ -4,14 +4,14 @@ import Icon from "../components/Icon.astro";
 ---
 <Base title="Page not found">
 <main>
-  <section class="flex min-h-[70vh] items-center bg-kudu-navy pt-[100px] text-white">
+  <section class="flex min-h-[70vh] items-center bg-kudu-navy pt-[72px] text-white md:pt-[100px]">
     <div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
       <p class="mb-4 text-[12px] uppercase tracking-[0.14em] text-kudu-teal">Error 404</p>
-      <h1 class="font-serif text-[46px] leading-[1.05]">This page has wandered off.</h1>
+      <h1 class="font-serif text-[38px] leading-[1.05] md:text-[46px]">This page has wandered off.</h1>
       <p class="mt-4 max-w-[48ch] text-[16px] text-white/80">The page you were looking for isn't here. Let's get you back to something beautiful.</p>
       <div class="mt-8 flex flex-wrap items-center gap-6">
         <a href="/" class="inline-flex h-[50px] items-center rounded-none bg-kudu-teal px-9 text-[12px] font-bold uppercase tracking-[1px] text-kudu-navy transition-colors hover:bg-white">Back to home</a>
-        <a href="/collections/" class="inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[1px] text-white hover:text-kudu-teal">View collections <Icon name="arrow-right" size={16} /></a>
+        <a href="/collections/" class="inline-flex items-center gap-2 py-3 text-[12px] lg:py-0 font-bold uppercase tracking-[1px] text-white hover:text-kudu-teal">View collections <Icon name="arrow-right" size={16} /></a>
       </div>
     </div>
   </section>

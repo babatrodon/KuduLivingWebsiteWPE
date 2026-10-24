@@ -8,11 +8,11 @@ const showroomTypes = ["All showrooms", "Flagship showrooms", "Authorised dealer
 const pins = ["left-[28%] top-[32%]", "left-[58%] top-[48%]", "left-[44%] top-[68%]"];
 ---
 <Base title="Find a Store">
-<main class="pt-[100px] text-kudu-navy">
+<main class="pt-[72px] text-kudu-navy md:pt-[100px]">
 
   <!-- TOP — title, search, geolocation -->
   <section class="bg-kudu-bg">
-    <div class={`${container} py-14`}>
+    <div class={`${container} py-10 md:py-14`}>
 
       <!-- Breadcrumb -->
       <nav class="mb-8 text-[12px] text-kudu-muted" aria-label="Breadcrumb">
@@ -21,7 +21,7 @@ const pins = ["left-[28%] top-[32%]", "left-[58%] top-[48%]", "left-[44%] top-[6
         <span>Find a Kudu Living showroom</span>
       </nav>
 
-      <h1 class="font-serif text-[36px] leading-tight text-kudu-navy">
+      <h1 class="font-serif text-[32px] leading-tight text-kudu-navy md:text-[36px]">
         Find a Kudu Living showroom
       </h1>
 
@@ -39,7 +39,7 @@ const pins = ["left-[28%] top-[32%]", "left-[58%] top-[48%]", "left-[44%] top-[6
           type="text"
           placeholder="Enter a location"
           aria-label="Enter a location"
-          class="h-full flex-1 bg-transparent px-1 text-[14px] text-kudu-navy placeholder:text-kudu-muted focus:outline-none"
+          class="h-full flex-1 bg-transparent px-1 text-[16px] text-kudu-navy placeholder:text-kudu-muted lg:text-[14px] focus:outline-none"
         >
         <button
           type="button"
@@ -51,7 +51,7 @@ const pins = ["left-[28%] top-[32%]", "left-[58%] top-[48%]", "left-[44%] top-[6
       </div>
 
       <!-- Use my current position -->
-      <button type="button" class="mt-5 inline-flex items-center gap-2 text-[13px] text-kudu-navy hover:text-kudu-teal">
+      <button type="button" class="mt-3 inline-flex items-center gap-2 py-3 text-[14px] md:mt-5 lg:py-0 lg:text-[13px] text-kudu-navy hover:text-kudu-teal">
         <Icon name="pin" size={16} />
         <span class="underline underline-offset-[6px]">Use my current position</span>
       </button>
@@ -65,10 +65,10 @@ const pins = ["left-[28%] top-[32%]", "left-[58%] top-[48%]", "left-[44%] top-[6
     <!-- Sidebar -->
     <aside class="bg-kudu-navy-deep p-6 text-white">
       <h2 class="text-[12px] font-bold uppercase tracking-[0.12em]">Type of showroom</h2>
-      <ul class="mt-5 space-y-4">
+      <ul class="mt-3 md:mt-5 lg:space-y-4">
         {showroomTypes.map((type, i) => (
           <li>
-            <label class="flex cursor-pointer items-center gap-3 text-[14px]">
+            <label class="flex cursor-pointer items-center gap-3 py-2.5 text-[15px] lg:py-0 lg:text-[14px]">
               <span class="relative flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-white/80">
                 {i === 0 && <span class="h-2 w-2 rounded-full bg-white"></span>}
               </span>
@@ -81,12 +81,12 @@ const pins = ["left-[28%] top-[32%]", "left-[58%] top-[48%]", "left-[44%] top-[6
     </aside>
 
     <!-- Map placeholder -->
-    <div class="relative min-h-[480px] bg-kudu-sand-soft">
+    <div class="relative min-h-[360px] bg-kudu-sand-soft md:min-h-[480px]">
 
       <!-- Map / Satellite toggle -->
       <div class="absolute left-4 top-4 z-10 flex overflow-hidden border border-kudu-line bg-white text-[12px] font-semibold shadow">
-        <button type="button" class="bg-white px-3 py-1.5 text-kudu-navy">Map</button>
-        <button type="button" class="border-l border-kudu-line bg-white px-3 py-1.5 text-kudu-muted hover:text-kudu-navy">Satellite</button>
+        <button type="button" class="bg-white px-4 py-3 text-kudu-navy lg:px-3 lg:py-1.5">Map</button>
+        <button type="button" class="border-l border-kudu-line bg-white px-4 py-3 text-kudu-muted hover:text-kudu-navy lg:px-3 lg:py-1.5">Satellite</button>
       </div>
 
       <!-- Faint map grid lines -->

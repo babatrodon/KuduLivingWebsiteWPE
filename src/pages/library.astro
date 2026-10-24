@@ -15,10 +15,10 @@ const resources = [
 ];
 ---
 <Base title="Library">
-<main class="bg-white pt-[100px] text-kudu-navy">
-  <div class={`${container} py-[50px]`}>
+<main class="bg-white pt-[72px] text-kudu-navy md:pt-[100px]">
+  <div class={`${container} py-[36px] md:py-[50px]`}>
 
-    <h1 class="font-serif text-[36px] leading-tight text-kudu-navy">Library</h1>
+    <h1 class="font-serif text-[32px] leading-tight text-kudu-navy md:text-[36px]">Library</h1>
     <p class="mt-3 max-w-[640px] text-[16px] text-kudu-muted">
       Technical resources, certifications and 3D models for architects, designers and
       specifiers working with Kudu Living.
@@ -26,7 +26,7 @@ const resources = [
 
     <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
       {resources.map((resource) => (
-        <div class="flex flex-col border border-kudu-line bg-white p-8 shadow">
+        <div class="flex flex-col border border-kudu-line bg-white p-6 shadow md:p-8">
           <h2 class="font-serif text-[18px] leading-snug text-kudu-navy">
             {resource.title}
           </h2>
@@ -35,7 +35,7 @@ const resources = [
           </p>
           <a
             href="#"
-            class="mt-6 inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.08em] text-kudu-teal hover:text-kudu-navy"
+            class="mt-3 inline-flex items-center gap-2 py-3 text-[12px] md:mt-6 lg:py-0 font-bold uppercase tracking-[0.08em] text-kudu-teal hover:text-kudu-navy"
           >
             Download
             <Icon name="arrow-right" size={14} />

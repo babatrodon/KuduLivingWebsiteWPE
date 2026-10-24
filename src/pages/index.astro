@@ -58,7 +58,7 @@ const tiles = [
       <div class="absolute bottom-[90px] left-0 w-full md:bottom-[130px]">
         <div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
           <p class="mb-3 text-[12px] font-bold uppercase tracking-[0.18em] text-kudu-teal">{s.eyebrow}</p>
-          <h2 class="max-w-[18ch] font-serif text-[38px] leading-[1.05] text-white md:text-[56px]">{s.title}</h2>
+          <h2 class="max-w-[18ch] font-serif text-[34px] leading-[1.05] text-white md:text-[56px]">{s.title}</h2>
           <a href={s.href} class="mt-7 inline-flex h-[50px] items-center rounded-none bg-kudu-teal px-9 text-[12px] font-bold uppercase tracking-[1px] text-kudu-navy transition-colors hover:bg-white">{s.cta}</a>
         </div>
       </div>
@@ -67,7 +67,7 @@ const tiles = [
   <div class="absolute bottom-[46px] left-0 z-20 w-full">
     <div class="mx-auto flex w-full max-w-[1440px] gap-3 px-5 md:px-[68px]">
       {slides.map((_, i) => (
-        <button data-dot type="button" class="h-2 w-2 rounded-full bg-white/50 transition-colors" aria-label={`Slide ${i + 1}`}></button>
+        <button data-dot type="button" class="-m-[18px] box-content h-2 w-2 rounded-full bg-white/50 bg-clip-content p-[18px] transition-colors" aria-label={`Slide ${i + 1}`}></button>
       ))}
     </div>
   </div>
@@ -85,13 +85,13 @@ const tiles = [
       <img src={img(scene.img)} alt="Kudu Living interior" class="h-full w-full object-cover">
       {scene.spots.map(([x, y, name, category, productImg]) => (
         <div class="absolute" style={`left:${x}%;top:${y}%`}>
-          <button data-hotspot type="button" class="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white/85 text-kudu-navy shadow animate-[bb-hotspot-pulse_2.5s_ease-out_infinite] md:h-[34px] md:w-[34px]" aria-label={name}><Icon name="plus" size={18} /></button>
-          <div data-popup class="absolute left-1/2 top-[40px] hidden w-[180px] max-w-[70vw] -translate-x-1/2 bg-white text-left shadow-xl sm:w-[240px]">
-            <img src={img(productImg)} alt={name} class="h-[110px] w-full object-cover sm:h-[140px]">
+          <button data-hotspot type="button" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-kudu-navy shadow animate-[bb-hotspot-pulse_2.5s_ease-out_infinite] lg:h-[34px] lg:w-[34px]" aria-label={name}><Icon name="plus" size={18} /></button>
+          <div data-popup class="fixed inset-x-4 bottom-4 z-[60] hidden bg-white text-left shadow-xl sm:absolute sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-[40px] sm:z-auto sm:w-[240px] sm:-translate-x-1/2">
+            <img src={img(productImg)} alt={name} class="h-[160px] w-full object-cover sm:h-[140px]">
             <div class="p-4">
               <div class="text-[11px] uppercase tracking-[1px] text-kudu-muted">{category}</div>
               <div class="font-serif text-[18px] text-kudu-navy">{name}</div>
-              <a href={featuredProductUrl} class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-[1px] text-kudu-navy hover:text-kudu-teal">Discover <Icon name="arrow-right" size={14} /></a>
+              <a href={featuredProductUrl} class="mt-2 inline-flex items-center gap-1 py-2 text-[12px] font-bold sm:py-0 sm:text-[11px] uppercase tracking-[1px] text-kudu-navy hover:text-kudu-teal">Discover <Icon name="arrow-right" size={14} /></a>
             </div>
           </div>
         </div>
@@ -108,13 +108,13 @@ const tiles = [
 </section>
 
 <!-- COLLECTIONS (Indoor / Outdoor tiles) -->
-<section class="bg-kudu-sand-soft py-[60px]">
+<section class="bg-kudu-sand-soft py-[40px] md:py-[60px]">
   <div class="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-5 px-5 md:grid-cols-2 md:px-[68px]">
     {tiles.map((t) => (
-      <a href="/collections/" class="group relative block aspect-[4/5] overflow-hidden">
+      <a href="/collections/" class="group relative block aspect-[4/4] overflow-hidden md:aspect-[4/5]">
         <img src={img(t.img)} alt={t.label} class="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
-        <div class="absolute bottom-9 left-9 text-white">
+        <div class="absolute bottom-6 left-6 text-white md:bottom-9 md:left-9">
           <div class="font-serif text-[40px] leading-none">{t.label}</div>
           <div class="mt-3 inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[1px]">{t.cta} <Icon name="arrow-right" size={16} /></div>
         </div>
@@ -128,7 +128,7 @@ const tiles = [
   <div class="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-10 px-5 md:px-[68px] lg:grid-cols-2">
     <div>
       <p class="text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-teal">Design Service</p>
-      <h2 class="mt-5 font-serif text-[34px] leading-[1.1] text-kudu-navy">Ready to redefine the way you live?</h2>
+      <h2 class="mt-5 font-serif text-[30px] leading-[1.1] text-kudu-navy md:text-[34px]">Ready to redefine the way you live?</h2>
       <p class="mt-6 max-w-[52ch] text-[15px] leading-relaxed text-kudu-muted">Our design team helps you shape spaces with natural materials and quiet, considered detailing — a bespoke, one-to-one consultation, in the showroom or at your project, from a single piece to a full interior.</p>
       <a href="/contact/" class="mt-8 inline-flex h-[50px] items-center rounded-none bg-kudu-navy px-9 text-[12px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-kudu-navy-deep">Book an appointment</a>
     </div>
@@ -139,13 +139,13 @@ const tiles = [
 </section>
 
 <!-- CONTRACT BANNER -->
-<section class="relative h-[592px] min-h-[420px] w-full overflow-hidden">
+<section class="relative h-[480px] min-h-[420px] w-full overflow-hidden md:h-[592px]">
   <img src={img("sections/contract.jpg")} alt="Kudu Living contract project" class="absolute inset-0 h-full w-full object-cover">
   <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
-  <div class="absolute bottom-[110px] left-0 w-full">
+  <div class="absolute bottom-[60px] left-0 w-full md:bottom-[110px]">
     <div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
       <p class="mb-3 text-[12px] font-bold uppercase tracking-[0.12em] text-white">Projects</p>
-      <h2 class="max-w-[16ch] font-serif text-[38px] leading-[1.1] text-white md:text-[46px]">Interiors for homes, hotels &amp; workplaces</h2>
+      <h2 class="max-w-[16ch] font-serif text-[32px] leading-[1.1] text-white md:text-[46px]">Interiors for homes, hotels &amp; workplaces</h2>
       <a href="/contract/" class="mt-7 inline-flex h-[50px] items-center rounded-none border border-white/90 px-9 text-[12px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-white hover:text-kudu-navy">Explore contract</a>
     </div>
   </div>

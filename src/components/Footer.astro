@@ -8,31 +8,31 @@ const year = new Date().getUTCFullYear();
 ---
 <footer class="bg-kudu-navy-deep pt-[60px] text-white/80">
   <div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
-    <div class="grid grid-cols-1 gap-10 pb-14 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
-      <div>
+    <div class="grid grid-cols-2 gap-x-6 gap-y-10 pb-14 md:grid-cols-[1.6fr_1fr_1fr_1fr] md:gap-10">
+      <div class="col-span-2 md:col-span-1">
         <img src="/assets/img/kudu-logo-horizontal-white.svg" alt={SITE_NAME} class="mb-6 h-[42px] w-auto">
         <p class="max-w-[36ch] text-[14px] leading-relaxed">Furniture and wood-based interiors, made to bring warmth, comfort and character to every space.</p>
       </div>
       <div>
         <h5 class="mb-4 text-[13px] font-semibold uppercase tracking-[0.16em] text-white">Collections</h5>
         {collections.map((c) => (
-          <a href="/collections/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">{c}</a>
+          <a href="/collections/" class="block py-2.5 text-[15px] transition-colors hover:text-kudu-teal lg:py-1.5 lg:text-[14px]">{c}</a>
         ))}
       </div>
       <div>
         <h5 class="mb-4 text-[13px] font-semibold uppercase tracking-[0.16em] text-white">Company</h5>
-        <a href="/about/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">About</a>
-        <a href="/about/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Craftsmanship</a>
-        <a href="/about/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Sustainability</a>
-        <a href="/contact/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Contact</a>
+        <a href="/about/" class="block py-2.5 text-[15px] transition-colors hover:text-kudu-teal lg:py-1.5 lg:text-[14px]">About</a>
+        <a href="/about/" class="block py-2.5 text-[15px] transition-colors hover:text-kudu-teal lg:py-1.5 lg:text-[14px]">Craftsmanship</a>
+        <a href="/about/" class="block py-2.5 text-[15px] transition-colors hover:text-kudu-teal lg:py-1.5 lg:text-[14px]">Sustainability</a>
+        <a href="/contact/" class="block py-2.5 text-[15px] transition-colors hover:text-kudu-teal lg:py-1.5 lg:text-[14px]">Contact</a>
       </div>
-      <div>
+      <div class="col-span-2 md:col-span-1">
         <h5 class="mb-4 text-[13px] font-semibold uppercase tracking-[0.16em] text-white">Visit</h5>
-        <a href="/contact/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Showroom</a>
-        <a href="/contact/" class="block py-1.5 text-[14px] transition-colors hover:text-kudu-teal">Trade enquiries</a>
-        <div class="mt-4 flex items-center gap-[18px]">
+        <a href="/contact/" class="block py-2.5 text-[15px] transition-colors hover:text-kudu-teal lg:py-1.5 lg:text-[14px]">Showroom</a>
+        <a href="/contact/" class="block py-2.5 text-[15px] transition-colors hover:text-kudu-teal lg:py-1.5 lg:text-[14px]">Trade enquiries</a>
+        <div class="mt-6 flex items-center gap-[30px] md:mt-4 md:gap-[18px]">
           {socials.map((s) => (
-            <a href="#" aria-label={s} class="text-white transition-opacity hover:opacity-70"><Icon name={s} size={20} /></a>
+            <a href="#" aria-label={s} class="-m-[12px] p-[12px] text-white transition-opacity hover:opacity-70"><Icon name={s} size={20} /></a>
           ))}
         </div>
       </div>

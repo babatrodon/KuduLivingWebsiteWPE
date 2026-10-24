@@ -10,6 +10,7 @@ export function getStaticPaths() {
 const { product } = Astro.props as { product: Product };
 const designer = product.designer || "Kudu Studio";
 const category = product.category || "Collections";
+// bodyClass padding keeps the footer clear of the fixed bottom bar.
 const gallery = [
   product.image,
   img("inspirations/scene-01.jpg"),
@@ -17,19 +18,19 @@ const gallery = [
   img("sections/design-service.jpg"),
 ];
 ---
-<Base title={product.title}>
-  <main class="pt-[100px]">
+<Base title={product.title} bodyClass="pb-[66px] md:pb-[74px]">
+  <main class="pt-[72px] md:pt-[100px]">
     <div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
       <!-- Breadcrumb -->
-      <nav class="pt-6 text-[13px] text-kudu-muted">
+      <nav class="pt-3 text-[13px] text-kudu-muted md:pt-6 [&_a]:inline-block [&_a]:py-3 lg:[&_a]:py-0">
         <a href="/">Home</a> <span class="px-1">|</span>
         <a href="/collections/">Collections</a> <span class="px-1">|</span>
         {category} <span class="px-1">|</span> {product.title}
       </nav>
 
       <!-- Title + meta -->
-      <div class="relative mt-6 text-center">
-        <h1 class="font-serif text-[36px] text-kudu-navy">{product.title}</h1>
+      <div class="relative mt-3 text-center md:mt-6">
+        <h1 class="font-serif text-[30px] leading-tight text-kudu-navy md:text-[36px] md:leading-[1.6]">{product.title}</h1>
         <div class="mt-2 text-[15px] leading-7 text-kudu-muted">{designer}<br>2026<br>{category}</div>
       </div>
     </div>
@@ -39,7 +40,7 @@ const gallery = [
       <div class="flex h-[320px] items-center justify-center overflow-hidden bg-white md:h-[460px]">
         <img data-gallery-main src={product.image} alt={product.title} class="h-full w-full object-contain">
       </div>
-      <div class="mt-4 grid grid-cols-4 gap-4">
+      <div class="mt-3 grid grid-cols-4 gap-2 sm:gap-4 md:mt-4">
         {gallery.map((g, k) => (
           <button data-thumb data-img={g} type="button" class={`aspect-square overflow-hidden bg-kudu-sand-soft ${k === 0 ? "ring-2 ring-kudu-navy" : ""}`}>
             <img src={g} alt={`View ${k + 1}`} class="h-full w-full object-cover">
@@ -60,8 +61,8 @@ const gallery = [
     </nav>
 
     <!-- Description + Technical -->
-    <section class="mx-auto w-full max-w-[1440px] px-5 py-[50px] md:px-[68px]">
-      <div class="grid gap-12 lg:grid-cols-2">
+    <section class="mx-auto w-full max-w-[1440px] px-5 py-[36px] md:px-[68px] md:py-[50px]">
+      <div class="grid gap-8 md:gap-12 lg:grid-cols-2">
         <div data-tabpanel="description">
           <h2 class="font-serif text-[28px] text-kudu-navy">Description</h2>
           <div class="mt-5 max-w-[56ch] text-[15px] leading-relaxed text-kudu-muted">
@@ -101,7 +102,7 @@ const gallery = [
           <div class="text-[13px] text-kudu-muted">{category}</div>
         </div>
       </div>
-      <a href="/contact/" class="inline-flex h-[46px] shrink-0 items-center whitespace-nowrap rounded-none bg-kudu-navy px-5 text-[11px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-kudu-navy-deep md:h-[50px] md:px-9 md:text-[12px]"><span class="sm:hidden">Find a store</span><span class="hidden sm:inline">Find the nearest showroom</span></a>
+      <a href="/contact/" class="inline-flex h-[46px] shrink-0 items-center whitespace-nowrap rounded-none bg-kudu-navy px-5 text-[12px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-kudu-navy-deep md:h-[50px] md:px-9 md:text-[12px]"><span class="sm:hidden">Find a store</span><span class="hidden sm:inline">Find the nearest showroom</span></a>
     </div>
   </div>
 </Base>

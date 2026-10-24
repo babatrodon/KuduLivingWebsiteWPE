@@ -7,9 +7,11 @@ import { SITE_NAME } from "../lib/content";
 interface Props {
   /** Page title; omitted on the homepage. */
   title?: string;
+  /** Extra classes for <body>. */
+  bodyClass?: string;
 }
 
-const { title } = Astro.props;
+const { title, bodyClass } = Astro.props;
 const fullTitle = title ? `${title} – ${SITE_NAME}` : SITE_NAME;
 ---
 <!doctype html>
@@ -22,7 +24,7 @@ const fullTitle = title ? `${title} – ${SITE_NAME}` : SITE_NAME;
   <link rel="icon" href="/assets/img/kudu-symbol.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/theme.css">
 </head>
-<body class="bg-white text-kudu-navy">
+<body class:list={["bg-white text-kudu-navy", bodyClass]}>
   <Header />
   <slot />
   <Footer />

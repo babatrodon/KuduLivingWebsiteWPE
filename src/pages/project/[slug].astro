@@ -11,13 +11,13 @@ const { project } = Astro.props as { project: Project };
 ---
 <Base title={project.title}>
 <main>
-  <section class="bg-kudu-navy pt-[150px] pb-[70px] text-white">
+  <section class="bg-kudu-navy pt-[112px] pb-[48px] text-white md:pt-[150px] md:pb-[70px]">
     <div class="mx-auto w-full max-w-[1440px] px-5 md:px-[68px]">
-      <p class="mb-4 text-[12px] uppercase tracking-[0.14em] text-kudu-teal"><a href="/">Home</a> &nbsp;|&nbsp; Journal</p>
-      <h1 class="font-serif text-[44px] leading-[1.05]">{SITE_NAME}</h1>
+      <p class="mb-4 text-[12px] uppercase tracking-[0.14em] text-kudu-teal"><a href="/" class="-my-3 inline-block py-3">Home</a> &nbsp;|&nbsp; Journal</p>
+      <h1 class="font-serif text-[38px] leading-[1.05] md:text-[44px]">{SITE_NAME}</h1>
     </div>
   </section>
-  <section class="mx-auto w-full max-w-[1440px] px-5 py-[60px] md:px-[68px]">
+  <section class="mx-auto w-full max-w-[1440px] px-5 py-[40px] md:px-[68px] md:py-[60px]">
     <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
       <a href={`/project/${project.slug}/`} class="group block">
         <div class="aspect-[3/2] overflow-hidden bg-kudu-sand-soft">

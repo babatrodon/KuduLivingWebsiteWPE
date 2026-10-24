@@ -11,11 +11,11 @@ const cards = projects.slice(0, 8);
 
   <!-- HERO (full-bleed, under the fixed 100px header) -->
   <section
-    class="relative h-[480px] w-full bg-cover bg-center"
+    class="relative h-[360px] w-full bg-cover bg-center md:h-[480px]"
     style={`background-image:url('${img("pages/contract-hero.jpg")}')`}
   >
     <div class="absolute inset-0 bg-black/15"></div>
-    <div class={`${container} relative flex h-full flex-col justify-between pt-[118px] pb-10`}>
+    <div class={`${container} relative flex h-full flex-col justify-between pt-[96px] pb-8 md:pt-[118px] md:pb-10`}>
       <nav class="text-[12px] font-medium tracking-[0.04em] text-white">
         Home <span class="px-1 opacity-70">|</span> Contract
       </nav>
@@ -25,7 +25,7 @@ const cards = projects.slice(0, 8);
 
   <!-- INTRO -->
   <section class="bg-kudu-bg">
-    <div class={`${container} py-[50px]`}>
+    <div class={`${container} py-[36px] md:py-[50px]`}>
       <p class="max-w-[1100px] text-[16px] leading-relaxed text-kudu-navy">
         Kudu Living supplies furniture and wood interiors to hospitality, workplace and
         residential projects worldwide. From boutique hotels and lodges to corporate
@@ -39,7 +39,7 @@ const cards = projects.slice(0, 8);
   <!-- PROJECTS GRID -->
   <section class="bg-white">
     <div class={`${container} py-[20px]`}>
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-5 lg:grid-cols-4">
         {cards.map((p) => (
           <a href={`/project/${p.slug}/`} class="group block">
             <div class="overflow-hidden">
@@ -61,7 +61,7 @@ const cards = projects.slice(0, 8);
 
   <!-- CLOSING CTA BAND -->
   <section class="bg-kudu-navy">
-    <div class={`${container} flex flex-col items-start gap-6 py-[60px] text-white md:flex-row md:items-center md:justify-between`}>
+    <div class={`${container} flex flex-col items-start gap-6 py-[48px] text-white md:py-[60px] md:flex-row md:items-center md:justify-between`}>
       <h2 class="max-w-[700px] font-serif text-[28px] font-bold leading-tight text-white">
         Work with our contract team
       </h2>

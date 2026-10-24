@@ -19,10 +19,10 @@ const catalogues = [
 ];
 ---
 <Base title="Catalogues">
-<main class="bg-white pt-[100px] text-kudu-navy">
-  <div class={`${container} py-[50px]`}>
+<main class="bg-white pt-[72px] text-kudu-navy md:pt-[100px]">
+  <div class={`${container} py-[36px] md:py-[50px]`}>
 
-    <h1 class="font-serif text-[36px] leading-tight text-kudu-navy">Catalogues</h1>
+    <h1 class="font-serif text-[32px] leading-tight text-kudu-navy md:text-[36px]">Catalogues</h1>
     <p class="mt-3 max-w-[640px] text-[16px] text-kudu-muted">
       Browse and download the latest Kudu Living catalogues — collections, contract work
       and inspiration, ready to keep.
@@ -39,7 +39,7 @@ const catalogues = [
           </h2>
           <a
             href={catalogue.pdf}
-            class="mt-2 inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.08em] text-kudu-teal hover:text-kudu-navy"
+            class="inline-flex items-center gap-2 py-3 text-[12px] md:mt-2 lg:py-0 font-bold uppercase tracking-[0.08em] text-kudu-teal hover:text-kudu-navy"
           >
             Download PDF
             <Icon name="arrow-right" size={14} />

@@ -28,12 +28,12 @@ const active = chapters[0];
 <main>
 
   <!-- HERO -->
-  <section class="relative h-[520px] w-full overflow-hidden bg-kudu-navy">
+  <section class="relative h-[400px] w-full overflow-hidden bg-kudu-navy md:h-[520px]">
     <img src={img("pages/history-hero.png")} alt="Kudu Living — our story" class="absolute inset-0 h-full w-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
-    <div class={`${container} relative flex h-full flex-col justify-between pt-[118px] pb-10`}>
+    <div class={`${container} relative flex h-full flex-col justify-between pt-[96px] pb-8 md:pt-[118px] md:pb-10`}>
       <nav class="text-[12px] font-medium tracking-[0.04em] text-white">
-        <a href="/" class="hover:opacity-80">Home</a>
+        <a href="/" class="-my-3 inline-block py-3 hover:opacity-80">Home</a>
         <span class="px-1 opacity-70">|</span> Our Story
       </nav>
       <div>
@@ -45,7 +45,7 @@ const active = chapters[0];
 
   <!-- INTRO -->
   <section class="bg-kudu-sand-soft">
-    <div class={`${container} py-[50px]`}>
+    <div class={`${container} py-[36px] md:py-[50px]`}>
       <p class="max-w-[1100px] text-[16px] leading-relaxed text-kudu-navy md:text-[18px]">
         Kudu Living was founded on a love of craft and the honest beauty of natural materials.
         We build wood-based interiors and furniture the slow way — shaped by hand, finished with
@@ -59,11 +59,11 @@ const active = chapters[0];
   <!-- STORY TIMELINE -->
   <section class="bg-kudu-sand-soft">
     <div class={`${container} pb-[70px]`}>
-      <div class="flex flex-wrap gap-x-8 gap-y-3 border-b border-kudu-navy/15 pb-4">
+      <div class="flex flex-wrap gap-x-6 gap-y-1 border-b border-kudu-navy/15 pb-2 md:gap-x-8 md:gap-y-3 md:pb-4">
         {chapters.map((chapter, i) => (
           <button
             type="button"
-            class={`text-[18px] tracking-[0.04em] transition-colors hover:text-kudu-navy ${i === 0 ? "font-bold text-kudu-navy underline underline-offset-[6px]" : "font-normal text-kudu-muted"}`}
+            class={`py-2 text-[16px] tracking-[0.04em] transition-colors md:text-[18px] lg:py-0 hover:text-kudu-navy ${i === 0 ? "font-bold text-kudu-navy underline underline-offset-[6px]" : "font-normal text-kudu-muted"}`}
           >
             {chapter.label}
           </button>
@@ -78,11 +78,11 @@ const active = chapters[0];
   </section>
 
   <!-- CONTENT BLOCK: natural materials -->
-  <section class="bg-kudu-bg py-[60px]">
+  <section class="bg-kudu-bg py-[44px] md:py-[60px]">
     <div class={`${container} grid grid-cols-1 items-center gap-10 lg:grid-cols-2`}>
       <div>
         <p class="text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-teal">Materials</p>
-        <h2 class="mt-5 font-serif text-[34px] leading-[1.1] text-kudu-navy">Wood, first and always</h2>
+        <h2 class="mt-5 font-serif text-[30px] leading-[1.1] text-kudu-navy md:text-[34px]">Wood, first and always</h2>
         <p class="mt-6 max-w-[52ch] text-[15px] leading-relaxed text-kudu-muted">
           We choose responsibly sourced timber for its warmth, its strength and the way it earns
           character with time. Left to speak for itself, wood grounds every interior we make —

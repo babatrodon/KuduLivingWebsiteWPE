@@ -3,7 +3,7 @@
 import Base from "../layouts/Base.astro";
 
 const container = "mx-auto w-full max-w-[1440px] px-5 md:px-[68px]";
-const field = "w-full border border-kudu-line px-4 py-3 text-[15px] text-kudu-navy outline-none transition-colors focus:border-kudu-navy";
+const field = "w-full border border-kudu-line px-4 py-3 text-[16px] text-kudu-navy outline-none lg:text-[15px] transition-colors focus:border-kudu-navy";
 const label = "mb-2 block text-[12px] font-bold uppercase tracking-[0.12em] text-kudu-muted";
 
 const info = [
@@ -20,20 +20,20 @@ const interests = ["General enquiry", "Bespoke project", "Trade & contract", "Sh
 <main>
 
 <!-- PAGE HERO -->
-<section class="relative bg-kudu-navy pt-[150px] pb-[70px] text-white">
+<section class="relative bg-kudu-navy pt-[112px] pb-[48px] text-white md:pt-[150px] md:pb-[70px]">
   <div class={container}>
     <nav class="mb-5 text-[12px] uppercase tracking-[0.14em] text-kudu-teal" aria-label="Breadcrumb">
-      <a href="/" class="transition-opacity hover:opacity-80">Home</a>
+      <a href="/" class="-my-3 inline-block py-3 transition-opacity hover:opacity-80">Home</a>
       <span class="mx-2 text-white/40">|</span>
       <span class="text-white/80">Contact</span>
     </nav>
-    <h1 class="max-w-[16ch] font-serif text-[44px] leading-[1.05]">Get in touch</h1>
+    <h1 class="max-w-[16ch] font-serif text-[38px] leading-[1.05] md:text-[44px]">Get in touch</h1>
     <p class="mt-6 max-w-[54ch] text-[16px] leading-relaxed text-white/80">Whether you are planning a single piece or a full interior, our team would love to hear from you. Send us a note and we will be in touch — or visit the showroom to experience the collection in person.</p>
   </div>
 </section>
 
 <!-- BODY: FORM + CONTACT INFO -->
-<section class="bg-white py-[70px]">
+<section class="bg-white py-[48px] md:py-[70px]">
   <div class={container}>
     <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
 
@@ -80,7 +80,7 @@ const interests = ["General enquiry", "Bespoke project", "Trade & contract", "Sh
           <!-- Send result; stays hidden until a submission returns. The button stays last so spacing is unchanged. -->
           <p data-contact-status role="status" class="hidden text-[15px] leading-relaxed text-kudu-navy"></p>
 
-          <button type="submit" class="inline-flex h-[50px] items-center rounded-none bg-kudu-navy px-9 text-[12px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-kudu-navy-deep">Send enquiry</button>
+          <button type="submit" class="inline-flex h-[50px] w-full items-center justify-center rounded-none sm:w-auto sm:justify-start bg-kudu-navy px-9 text-[12px] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-kudu-navy-deep">Send enquiry</button>
         </form>
       </div>
 
